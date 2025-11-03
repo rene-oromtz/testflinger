@@ -431,3 +431,11 @@ def get_device_stage_func(device: str, stage: str, config: dict) -> Callable:
     device_instance = device_class(config=config)
     stage_method = getattr(device_instance, stage)
     return stage_method
+
+
+# Import new base classes for use by device connectors
+# These are re-exported to make them available to device connector modules
+from testflinger_device_connectors.devices.base import (  # noqa: E402, I001
+    BaseDeviceConnector as BaseDeviceConnector,
+    DeviceConnectorProtocol as DeviceConnectorProtocol,
+)
