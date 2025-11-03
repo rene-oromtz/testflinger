@@ -56,8 +56,9 @@ class DeviceConnector(BaseDeviceConnector, DefaultDevice):
         username = self.get_test_username(job_data)
         device_ip = config["device_ip"]
         
-        logger.info(f"Provisioning {device_ip} with {image_url}")
-        logger.info(f"Test username: {username}")
+        # Note: Use % formatting for better performance
+        logger.info("Provisioning %s with %s", device_ip, image_url)
+        logger.info("Test username: %s", username)
         
         # Your custom provisioning logic here
         # ...
